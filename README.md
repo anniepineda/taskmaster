@@ -30,7 +30,11 @@ The all tasks page should just be an image with a back button; it needs no funct
 
 ![all tasks](./assets/all-tasks.png)
 
-<<<<<<< HEAD
+
+
+
+
+
 
 
 ## Adding Data to TaskMaster
@@ -50,5 +54,22 @@ top of the page should match the task title that was tapped on the previous page
 
 The homepage should also contain a button to visit the Settings page, and once the user has entered
 their username, it should display “{username}’s tasks” above the three task buttons.
-=======
->>>>>>> 050b20cef9fbeafa2ec9bd6eaedc2a1681281f76
+
+
+
+
+
+
+
+
+##Feature Tasks (lab 28)
+
+###Task Model
+Create a Task class. Task has a title, a body, and a state. The state is one of
+“new”, “assigned”, “in progress”, or “complete”.
+
+Homepage
+Homepage is refactored to use RecyclerView for displaying Task data. This has hardcoded
+Task data for now.
+
+
