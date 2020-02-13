@@ -3,7 +3,6 @@
 ### Setup
 To start, create a new directory and repo to hold this app. Name it taskmaster.
 Within that directory, use Android Studio to set up a new app.
-Create a README file that includes, at minimum, a description of your app and a daily change log.
 
 
 ### Feature Tasks
@@ -30,4 +29,47 @@ a body. When users click the “submit” button, show a “submitted!” label 
 The all tasks page should just be an image with a back button; it needs no functionality.
 
 ![all tasks](./assets/all-tasks.png)
+
+
+
+
+
+
+
+
+## Adding Data to TaskMaster
+
+
+### Task Detail Page
+Create a Task Detail page. It should have a title at the top of the page, and a Lorem Ipsum
+description.
+
+### Settings Page
+Create a Settings page. It should allow users to enter their username and hit save.
+
+### Homepage
+The main page should be modified to contain three different buttons with hardcoded task titles.
+When a user taps one of the titles, it should go to the Task Detail page, and the title at the
+top of the page should match the task title that was tapped on the previous page.
+
+The homepage should also contain a button to visit the Settings page, and once the user has entered
+their username, it should display “{username}’s tasks” above the three task buttons.
+
+
+
+
+
+
+
+
+##Feature Tasks (lab 28)
+
+###Task Model
+Create a Task class. Task has a title, a body, and a state. The state is one of
+“new”, “assigned”, “in progress”, or “complete”.
+
+Homepage
+Homepage is refactored to use RecyclerView for displaying Task data. This has hardcoded
+Task data for now.
+
 
