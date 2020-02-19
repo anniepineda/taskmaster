@@ -21,6 +21,8 @@
         android:layout_height="36dp"
         android:layout_marginTop="120dp"
         android:text="All Tasks"
+        android:textColor="#009688"
+        android:textSize="18sp"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="104dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
