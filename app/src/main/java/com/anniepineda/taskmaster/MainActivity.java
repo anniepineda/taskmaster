@@ -47,6 +47,48 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.startActivity(goToTasksView);
             }
         });
+
+
+
+
+
+
+        //Go to task detail from buy cupcakes
+        Button goToBuyCupcakesTaskDetail = findViewById(R.id.button7);
+        goToBuyCupcakesTaskDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent buyCupcakes = new Intent(MainActivity.this, TaskDetail.class);
+                MainActivity.this.startActivity(buyCupcakes);
+            }
+        });
+
+        //Go to task detail from eat cupcakes
+        Button goToEatCupcakesTaskDetail = findViewById(R.id.button8);
+        goToEatCupcakesTaskDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent buyCupcakes = new Intent(MainActivity.this, TaskDetail.class);
+                MainActivity.this.startActivity(buyCupcakes);
+            }
+        });
+
+        //Go to task detail from buy cookies
+        Button goToBuyCookiesTaskDetail = findViewById(R.id.button9);
+        goToBuyCookiesTaskDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToTasksView = new Intent(MainActivity.this, TaskDetail.class);
+                MainActivity.this.startActivity(goToTasksView);
+            }
+        });
+
+
+
+
+
+
+
         //Go to settings
         Button goToSettings = findViewById(R.id.button5);
         goToSettings.setOnClickListener(new View.OnClickListener() {
