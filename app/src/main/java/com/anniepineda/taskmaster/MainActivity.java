@@ -47,29 +47,25 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.startActivity(goToTasksView);
             }
         });
-
-
-
-
-
-
         //Go to task detail from buy cupcakes
         Button goToBuyCupcakesTaskDetail = findViewById(R.id.button7);
         goToBuyCupcakesTaskDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent buyCupcakes = new Intent(MainActivity.this, TaskDetail.class);
+                buyCupcakes.putExtra("task", "Buy Cupcakes");
                 MainActivity.this.startActivity(buyCupcakes);
             }
         });
 
         //Go to task detail from eat cupcakes
-        Button goToEatCupcakesTaskDetail = findViewById(R.id.button8);
+        final Button goToEatCupcakesTaskDetail = findViewById(R.id.button8);
         goToEatCupcakesTaskDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent buyCupcakes = new Intent(MainActivity.this, TaskDetail.class);
-                MainActivity.this.startActivity(buyCupcakes);
+                Intent eatCupcakes = new Intent(MainActivity.this, TaskDetail.class);
+                eatCupcakes.putExtra("task", "Eat Cupcakes");
+                MainActivity.this.startActivity(eatCupcakes);
             }
         });
 
@@ -78,17 +74,11 @@ public class MainActivity extends AppCompatActivity {
         goToBuyCookiesTaskDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goToTasksView = new Intent(MainActivity.this, TaskDetail.class);
-                MainActivity.this.startActivity(goToTasksView);
+                Intent buyCookies = new Intent(MainActivity.this, TaskDetail.class);
+                buyCookies.putExtra("task", "Buy Cookies");
+                MainActivity.this.startActivity(buyCookies);
             }
         });
-
-
-
-
-
-
-
         //Go to settings
         Button goToSettings = findViewById(R.id.button5);
         goToSettings.setOnClickListener(new View.OnClickListener() {
@@ -99,8 +89,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
     @Override
     public void onResume() {
         super.onResume();
@@ -113,9 +101,16 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-
 }
+
+//    LAB 32  Requirements-------------------------------------
+//    Feature Tasks
+//    Tasks Are Cloudy
+//        Using the amplify add api command, create a Task resource that replicates our existing Task schema. Update all references to the Task data to instead use AWS Amplify to access your data in DynamoDB instead of in Room.
+//
+//        Add Task Form
+//        Modify your Add Task form to save the data entered in as a Task to DynamoDB.
+//
+//        Homepage
+//        Refactor your homepage’s RecyclerView to display all Task entities in DynamoDB.
+
