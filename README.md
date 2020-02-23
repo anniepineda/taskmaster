@@ -67,11 +67,19 @@ their username, it should display “{username}’s tasks” above the three tas
 ##Feature Tasks (lab 28)
 
 ###Task Model
-Create a Task class. Task has a title, a body, and a state. The state is one of
-“new”, “assigned”, “in progress”, or “complete”.
+Task class. Task has a title, a body, and a state. The state is one of “new”, “assigned”,
+“in progress”, or “complete”.
 
 Homepage
 Homepage is refactored to use RecyclerView for displaying Task data. This has hardcoded
 Task data for now.
 
+A ViewAdapter class displays data from a list of Tasks.
+In your MainActivity, create at least three hardcoded Task instances and use those to populate
+your RecyclerView/ViewAdapter.
 
+When you tap on any one of the Tasks in the RecyclerView, it will appropriately
+launch the detail page with the correct Task title displayed.
+
+
+![all tasks](./assets/homepageNew.png)
