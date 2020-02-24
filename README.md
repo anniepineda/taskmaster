@@ -64,9 +64,9 @@ their username, it should display “{username}’s tasks” above the three tas
 
 
 
-##Feature Tasks (lab 28)
+## Feature Tasks (lab 28)
 
-###Task Model
+### Task Model
 Task class. Task has a title, a body, and a state. The state is one of “new”, “assigned”,
 “in progress”, or “complete”.
 
@@ -83,3 +83,25 @@ launch the detail page with the correct Task title displayed.
 
 
 ![all tasks](./assets/homepageNew.png)
+
+
+## Feature Task (lab 32)
+
+### Task Model
+Task Model and Room
+Following the directions provided in the Android documentation, set up Room in your application,
+and modify your Task class to be an Entity.
+
+Add Task Form
+Modify your Add Task form to save the data entered in as a Task in your local database.
+
+Homepage
+Refactor your homepage’s RecyclerView to display all Task entities in your database.
+
+Detail Page
+Ensure that the description and status of a tapped task are also displayed on the detail page, in
+addition to the title. (Note that you can accomplish this by passing along the entire Task entity,
+or by passing along only its ID in the intent.)
+
+![all tasks](./assets/homescreen2.png)
+![all tasks](./assets/task-detail2.png)

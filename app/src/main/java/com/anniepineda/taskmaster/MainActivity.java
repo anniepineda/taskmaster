@@ -3,6 +3,7 @@ package com.anniepineda.taskmaster;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 
 import com.anniepineda.taskmaster.fragments.MyTaskRecyclerViewAdapter;
 import com.anniepineda.taskmaster.models.Task;
+import com.anniepineda.taskmaster.models.TaskmasterDB;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -26,20 +28,22 @@ public class MainActivity extends AppCompatActivity implements MyTaskRecyclerVie
     private MyTaskRecyclerViewAdapter taskAdapter;
     //holds everything for recycler view
     private List<Task> tasks;
+    private TaskmasterDB database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        this.tasks = new LinkedList<>();
 
-        Task taskOne = new Task("Buy Cupcakes", "Get Pink Frosting Cupcakes");
-        Task taskTwo = new Task("Eat Cupcakes", "Finish All Cupcakes By 3pm");
-        Task taskThree = new Task("Buy Cookies", "Buy Chocolate Chip Cookies");
-        tasks = new LinkedList<> ();
-        tasks.add(taskOne);
-        tasks.add(taskTwo);
-        tasks.add(taskThree);
+        this.database = Room.databaseBuilder(getApplicationContext(), TaskmasterDB.class,"tasks")
+                .allowMainThreadQueries().build();
+
+//        this.database.taskDao().deleteAll();
+
+        //returns the list of tasks to recycler view
+        this.tasks.addAll(this.database.taskDao().getAll());
 
 
         //recycler view ser-up
@@ -58,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements MyTaskRecyclerVie
                 MainActivity.this.startActivity(goToAddTaskView);
             }
         });
+
+
         // Go to all task
         Button goToAllTask = findViewById(R.id.button2);
         goToAllTask.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +73,8 @@ public class MainActivity extends AppCompatActivity implements MyTaskRecyclerVie
                 MainActivity.this.startActivity(goToTasksView);
             }
         });
+
+
         //Go to task detail
         Button goToTaskDetail = findViewById(R.id.button6);
         goToTaskDetail.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements MyTaskRecyclerVie
                 MainActivity.this.startActivity(goToTasksView);
             }
         });
+
 
 
 //        //Go to task detail from buy cupcakes
@@ -122,6 +131,8 @@ public class MainActivity extends AppCompatActivity implements MyTaskRecyclerVie
             }
         });
     }
+
+
     @Override
     public void onResume() {
         super.onResume();
@@ -129,12 +140,23 @@ public class MainActivity extends AppCompatActivity implements MyTaskRecyclerVie
         String userID = userLoggedIn.getString("username", "default");
         TextView headerTask = findViewById(R.id.usernameTasks);
         headerTask.setText(userID);
+
+        this.tasks.clear();
+        this.tasks.addAll(this.database.taskDao().getAll());
+        //triggers recycler view to update tasks/itself
+        this.taskAdapter.notifyDataSetChanged();
     }
 
     //this method defines what happens when a task is clicked in the recycler view
     @Override
     public void onTaskSelected(Task task){
         Log.i(TAG, "task title clicked " +task.getTitle());
+        Intent goToDetail = new Intent(this, TaskDetail.class);
+        goToDetail.putExtra("taskTitle",task.getTitle());
+        goToDetail.putExtra("taskDescription",task.getDescription());
+        goToDetail.putExtra("taskState", task.getState());
+        startActivity(goToDetail);
+
     }
 
 
