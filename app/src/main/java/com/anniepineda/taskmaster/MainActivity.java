@@ -14,18 +14,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.anniepineda.taskmaster.fragments.MyTaskRecyclerViewAdapter;
 import com.anniepineda.taskmaster.models.Task;
 import com.anniepineda.taskmaster.models.TaskmasterDB;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements MyTaskRecyclerViewAdapter.OnTaskSelectedListener {
+public class MainActivity extends AppCompatActivity implements AllTaskRecyclerViewAdapter.OnTaskSelectedListener {
 
     private static final String TAG = "anniepineda.main";
     private RecyclerView recyclerView;
-    private MyTaskRecyclerViewAdapter taskAdapter;
+    private AllTaskRecyclerViewAdapter taskAdapter;
     //holds everything for recycler view
     private List<Task> tasks;
     private TaskmasterDB database;
@@ -46,10 +45,10 @@ public class MainActivity extends AppCompatActivity implements MyTaskRecyclerVie
         this.tasks.addAll(this.database.taskDao().getAll());
 
 
-        //recycler view ser-up
+        //recycler view set-up
         this.recyclerView = findViewById(R.id.taskRecycler);
         this.recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        this.taskAdapter = new MyTaskRecyclerViewAdapter(this.tasks,this);
+        this.taskAdapter = new AllTaskRecyclerViewAdapter(this.tasks,this);
         this.recyclerView.setAdapter(this.taskAdapter);
 
 
