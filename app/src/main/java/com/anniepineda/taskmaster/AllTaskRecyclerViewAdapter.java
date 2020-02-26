@@ -1,29 +1,34 @@
-package com.anniepineda.taskmaster.fragments;
+package com.anniepineda.taskmaster;
 
-import androidx.recyclerview.widget.RecyclerView;
-
+import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.anniepineda.taskmaster.R;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.anniepineda.taskmaster.fragments.TaskFragment.OnListFragmentInteractionListener;
 import com.anniepineda.taskmaster.models.Task;
 
 import java.util.List;
+
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
 /**
  * {@link RecyclerView.Adapter} that can display a {@link Task} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
-public class MyTaskRecyclerViewAdapter extends RecyclerView.Adapter<MyTaskRecyclerViewAdapter.ViewHolder> {
+public class AllTaskRecyclerViewAdapter extends RecyclerView.Adapter<AllTaskRecyclerViewAdapter.ViewHolder> {
+
 
     private final List<Task> tasks;
     private final OnTaskSelectedListener mListener;
 
-    public MyTaskRecyclerViewAdapter(List<Task> items, OnTaskSelectedListener listener) {
+    public AllTaskRecyclerViewAdapter(List<Task> items, OnTaskSelectedListener listener) {
         tasks = items;
         mListener = listener;
     }
@@ -52,6 +57,7 @@ public class MyTaskRecyclerViewAdapter extends RecyclerView.Adapter<MyTaskRecycl
         Task taskAtPosition = this.tasks.get(position);
         holder.task = taskAtPosition;
         holder.taskTitle.setText(taskAtPosition.getTitle());
+
     }
 
     @Override
@@ -73,5 +79,4 @@ public class MyTaskRecyclerViewAdapter extends RecyclerView.Adapter<MyTaskRecycl
     public interface OnTaskSelectedListener{
         void onTaskSelected(Task task);
     }
-
 }
