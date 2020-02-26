@@ -26,18 +26,12 @@ public class AllTasks extends AppCompatActivity implements AllTaskRecyclerViewAd
         database = Room.databaseBuilder(getApplicationContext(), TaskmasterDB.class,"tasks")
                 .allowMainThreadQueries().build();
 
-        //*********** when UNCOMENTING THIS NEXT LINE ALSO UNCOMENT rv.setAdapter(new MyTaskRecy.....)*********
+
         List<Task> listOfTasks = database.taskDao().getAll();
-//        List<Task> items = new ArrayList<>();
-//        items.add(new Task("test1", "description1"));
-//        items.add(new Task("test2", "description2"));
-//        items.add(new Task("test3", "description3"));
         RecyclerView rv = findViewById(R.id.allTaskRecyclerView);
         rv.setLayoutManager(new LinearLayoutManager(AllTasks.this));
         rv.setAdapter(new AllTaskRecyclerViewAdapter(listOfTasks, AllTasks.this));
 
-
-//        rv.setAdapter(new MyTaskRecyclerViewAdapter(items, this));
     }
     @Override
     public void onTaskSelected(Task task) {
