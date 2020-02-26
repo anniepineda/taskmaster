@@ -17,22 +17,38 @@ public class AllTasks extends AppCompatActivity implements AllTaskRecyclerViewAd
 
     static TaskmasterDB database;
 
+//
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_all_tasks2);
+//
+//        database = Room.databaseBuilder(getApplicationContext(), TaskmasterDB.class,"tasks")
+//                .allowMainThreadQueries().build();
+//
+//
+//        List<Task> listOfTasks = database.taskDao().getAll();
+//        RecyclerView rv = findViewById(R.id.allTaskRecyclerView);
+//        rv.setLayoutManager(new LinearLayoutManager(AllTasks.this));
+//        rv.setAdapter(new AllTaskRecyclerViewAdapter(listOfTasks, AllTasks.this));
+//
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_tasks2);
-
+        setContentView(R.layout.activity_all_tasks);
         database = Room.databaseBuilder(getApplicationContext(), TaskmasterDB.class,"tasks")
                 .allowMainThreadQueries().build();
-
-
         List<Task> listOfTasks = database.taskDao().getAll();
         RecyclerView rv = findViewById(R.id.allTaskRecyclerView);
-        rv.setLayoutManager(new LinearLayoutManager(AllTasks.this));
-        rv.setAdapter(new AllTaskRecyclerViewAdapter(listOfTasks, AllTasks.this));
-
+        rv.setLayoutManager(new LinearLayoutManager(this));
+        rv.setAdapter(new AllTaskRecyclerViewAdapter(listOfTasks, this));
     }
+
+
+
+
     @Override
     public void onTaskSelected(Task task) {
         Toast t = new Toast(this);

@@ -85,6 +85,7 @@ launch the detail page with the correct Task title displayed.
 ![all tasks](./assets/homepageNew.png)
 
 
+
 ## Feature Task (lab 32)
 
 ### Task Model
@@ -105,3 +106,11 @@ or by passing along only its ID in the intent.)
 
 ![all tasks](./assets/homescreen2.png)
 ![all tasks](./assets/task-detail2.png)
+
+
+## Feature Task (lab 33)
+
+### Task Model
+Polish and add All Tasks Page
+Today, your app will add a new activity for all tasks with a Recycler View showing all tasks.
+These tasks must be clickable. When clicked on, trigger a Toast that displays details about the task.
