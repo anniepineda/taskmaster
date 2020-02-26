@@ -114,3 +114,18 @@ or by passing along only its ID in the intent.)
 Polish and add All Tasks Page
 Today, your app will add a new activity for all tasks with a Recycler View showing all tasks.
 These tasks must be clickable. When clicked on, trigger a Toast that displays details about the task.
+
+
+## Feature Task (lab 33)
+
+### Task Model
+Uploads
+On the “Add a Task” activity, allow users to optionally select a file to attach to that task. If a
+user attaches a file to a task, that file should be uploaded to S3, and associated with that task.
+
+Displaying Files
+On the Task detail activity, if there is a file that is an image associated with a particular Task,
+that image should be displayed within that activity. (If the file is any other type, you should
+display a link to it.)
+
+
