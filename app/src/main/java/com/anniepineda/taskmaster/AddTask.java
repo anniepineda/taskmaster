@@ -4,22 +4,43 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.amazonaws.amplify.generated.graphql.CreateTaskMutation;
+import com.amazonaws.mobile.config.AWSConfiguration;
+import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
 import com.anniepineda.taskmaster.models.Task;
 import com.anniepineda.taskmaster.models.TaskmasterDB;
+import com.apollographql.apollo.GraphQLCall;
+import com.apollographql.apollo.api.Response;
+import com.apollographql.apollo.exception.ApolloException;
+import com.google.android.material.textfield.TextInputEditText;
+
+import javax.annotation.Nonnull;
+
+import type.CreateTaskInput;
 
 public class AddTask extends AppCompatActivity {
 
     private TaskmasterDB database;
 
+    static String TAG = "ap.addTask";
+    private AWSAppSyncClient mAWSAppSyncClient;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
+
+        mAWSAppSyncClient = AWSAppSyncClient.builder()
+                .context(getApplicationContext())
+                .awsConfiguration(new AWSConfiguration(getApplicationContext()))
+                .build();
 
         this.database = Room.databaseBuilder(getApplicationContext(), TaskmasterDB.class,"tasks")
                 .allowMainThreadQueries().build();
@@ -36,7 +57,6 @@ public class AddTask extends AppCompatActivity {
                 String titleStr = title.getText().toString();
                 String descriptionStr = description.getText().toString();
                 Task task = new Task(titleStr, descriptionStr);
-
                 database.taskDao().addTask(task);
 
 
@@ -48,6 +68,33 @@ public class AddTask extends AppCompatActivity {
             }
 
          });
+    }
+
+    public void viewTask(View v){
+
+        TextInputEditText taskNameEditText = findViewById(R.id.textInputEditText);
+        String taskName = taskNameEditText.getText().toString();
+        String taskDescription = "task one";
+        String taskStatus = "working on it!";
+        CreateTaskInput input = CreateTaskInput.builder()
+                .title(taskName)
+                .description(taskDescription)
+                .status(taskStatus)
+                .build();
+        mAWSAppSyncClient.mutate(CreateTaskMutation.builder().input(input).build())
+                .enqueue(new GraphQLCall.Callback<CreateTaskMutation.Data>() {
+                    @Override
+                    public void onResponse(@Nonnull Response<CreateTaskMutation.Data> response) {
+                        Log.i(TAG,response.data().toString());
+                    }
+
+                    @Override
+                    public void onFailure(@Nonnull ApolloException e) {
+                        Log.i(TAG,"Error!");
+
+                    }
+                });
+
     }
 
 
