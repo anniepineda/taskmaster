@@ -116,7 +116,7 @@ Today, your app will add a new activity for all tasks with a Recycler View showi
 These tasks must be clickable. When clicked on, trigger a Toast that displays details about the task.
 
 
-## Feature Task (lab 33)
+## Feature Task (lab 37)
 
 ### Task Model
 Uploads
