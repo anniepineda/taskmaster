@@ -64,6 +64,8 @@ their username, it should display “{username}’s tasks” above the three tas
 
 
 
+
+
 ## Feature Tasks (lab 28)
 
 ### Task Model
@@ -83,6 +85,9 @@ launch the detail page with the correct Task title displayed.
 
 
 ![all tasks](./assets/homepageNew.png)
+
+
+
 
 
 
@@ -108,12 +113,22 @@ or by passing along only its ID in the intent.)
 ![all tasks](./assets/task-detail2.png)
 
 
+
+
+
+
+
 ## Feature Task (lab 33)
 
 ### Task Model
 Polish and add All Tasks Page
 Today, your app will add a new activity for all tasks with a Recycler View showing all tasks.
 These tasks must be clickable. When clicked on, trigger a Toast that displays details about the task.
+
+
+
+
+
 
 
 ## Feature Task (lab 37)
@@ -129,3 +144,17 @@ that image should be displayed within that activity. (If the file is any other t
 display a link to it.)
 
 
+
+
+## Feature Task (lab 40)
+
+### Task Model
+Feature Tasks
+Notifications on Task Creation
+When a new task is created within a team, alert all users who are a part of that team about that new task.
+
+There are several steps involved in allowing this to work:
+
+Store which team a user is part of in the cloud
+Add a Lambda trigger on task creation
+Use SNS to send a notification as part of that Lambda
