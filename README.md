@@ -146,14 +146,15 @@ display a link to it.)
 
 
 
-
-
-
-## Feature Task (lab 38)
+## Feature Task (lab 40)
 
 ### Task Model
-Create a function that accepts an adjacency list as a graph, and conducts a depth first traversal.
-Without utilizing any of the built-in methods available to your language, return a collection of
-nodes in their pre-order depth-first traversal order.
+Feature Tasks
+Notifications on Task Creation
+When a new task is created within a team, alert all users who are a part of that team about that new task.
 
+There are several steps involved in allowing this to work:
 
+Store which team a user is part of in the cloud
+Add a Lambda trigger on task creation
+Use SNS to send a notification as part of that Lambda
