@@ -158,3 +158,21 @@ There are several steps involved in allowing this to work:
 Store which team a user is part of in the cloud
 Add a Lambda trigger on task creation
 Use SNS to send a notification as part of that Lambda
+
+
+
+
+## Feature Task (lab 41)
+
+### Overview
+    Today, your app will allow users to “share” a photo from another app and open TaskMaster,
+    ready to upload that image as part of a new task.
+
+    Setup
+    Continue working in your taskmaster repository.
+
+    Feature Tasks
+    Adding a Task from Another Application
+    Add an intent filter to your application such that a user can hit the “share” button on an
+    image in another application, choose TaskMaster as the app to share that image with, and be
+    taken directly to the Add a Task activity with that image pre-selected.
