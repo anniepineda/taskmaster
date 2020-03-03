@@ -3,6 +3,7 @@ package com.anniepineda.taskmaster;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -50,42 +51,43 @@ public class AddTask extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
-                EditText title = findViewById(R.id.textInputEditText);
-                EditText description = findViewById(R.id.textInputEditText2);
-
-                String titleStr = title.getText().toString();
-                String descriptionStr = description.getText().toString();
-                Task task = new Task(titleStr, descriptionStr);
-                database.taskDao().addTask(task);
+                createTask();
+//                EditText title = findViewById(R.id.textInputEditText);
+//                EditText description = findViewById(R.id.textInputEditText2);
+//
+//                String titleStr = title.getText().toString();
+//                String descriptionStr = description.getText().toString();
+//                Task task = new Task(titleStr, descriptionStr);
+//                database.taskDao().addTask(task);
 
 
                 Toast text = Toast.makeText(getApplicationContext(), "Submitted", Toast.LENGTH_SHORT);
                 text.show();
 
-                AddTask.this.finish();
+//                AddTask.this.finish();
 
             }
 
          });
     }
 
-    public void viewTask(View v){
+    public void createTask(){
 
         TextInputEditText taskNameEditText = findViewById(R.id.textInputEditText);
         String taskName = taskNameEditText.getText().toString();
-        String taskDescription = "task one";
-        String taskStatus = "working on it!";
+        EditText description = findViewById(R.id.textInputEditText2);
+        String descriptionStr = description.getText().toString();
         CreateTaskInput input = CreateTaskInput.builder()
                 .title(taskName)
-                .description(taskDescription)
-                .status(taskStatus)
+                .description(descriptionStr)
+                .status("In Progress")
                 .build();
         mAWSAppSyncClient.mutate(CreateTaskMutation.builder().input(input).build())
                 .enqueue(new GraphQLCall.Callback<CreateTaskMutation.Data>() {
                     @Override
                     public void onResponse(@Nonnull Response<CreateTaskMutation.Data> response) {
                         Log.i(TAG,response.data().toString());
+                        AddTask.this.startActivity(new Intent(AddTask.this, MainActivity.class));
                     }
 
                     @Override
