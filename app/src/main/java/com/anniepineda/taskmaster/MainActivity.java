@@ -18,6 +18,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.amazonaws.amplify.generated.graphql.ListTasksQuery;
+import com.amazonaws.mobile.client.AWSMobileClient;
+import com.amazonaws.mobile.client.Callback;
+import com.amazonaws.mobile.client.SignOutOptions;
+import com.amazonaws.mobile.client.UserState;
+import com.amazonaws.mobile.client.UserStateDetails;
 import com.amazonaws.mobile.config.AWSConfiguration;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
 import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
@@ -63,6 +68,35 @@ public class MainActivity extends AppCompatActivity implements AllTaskRecyclerVi
 
         //returns the list of tasks to recycler view
 //        this.tasks.addAll(this.database.taskDao().getAll());
+
+
+        //Cognito
+        AWSMobileClient.getInstance().initialize(getApplicationContext(), new Callback<UserStateDetails>() {
+
+                    @Override
+                    public void onResult(UserStateDetails userStateDetails) {
+                        Log.i("INIT", "onResult: " + userStateDetails.getUserState());
+                        if(userStateDetails.getUserState().equals(UserState.SIGNED_OUT)){
+                            AWSMobileClient.getInstance().showSignIn(MainActivity.this, new Callback<UserStateDetails>() {
+                                @Override
+                                public void onResult(UserStateDetails result) {
+                                    Log.d(TAG, "onResult: " + result.getUserState());
+                                }
+
+                                @Override
+                                public void onError(Exception e) {
+                                    Log.e(TAG, "onError: ", e);
+                                }
+                            });
+                        }
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        Log.e("INIT", "Initialization error.", e);
+                    }
+                }
+        );
 
 
         //recycler view set-up
@@ -152,6 +186,37 @@ public class MainActivity extends AppCompatActivity implements AllTaskRecyclerVi
                 MainActivity.this.startActivity(goToSettings);
             }
         });
+
+        // LOG OUT BUTTON
+        Button logOutButton = findViewById(R.id.logout);
+        logOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AWSMobileClient.getInstance().signOut(SignOutOptions.builder().signOutGlobally(true).build(), new Callback<Void>() {
+                    @Override
+                    public void onResult(final Void result) {
+                        AWSMobileClient.getInstance().showSignIn(MainActivity.this, new Callback<UserStateDetails>() {
+                            @Override
+                            public void onResult(UserStateDetails result) {
+                                Log.d(TAG, "onResult: " + result.getUserState());
+                            }
+
+                            @Override
+                            public void onError(Exception e) {
+                                Log.d(TAG, "onError", e);
+                            }
+                        });
+                        Log.d(TAG, "sign out");
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        Log.e(TAG, "sign out error", e);
+                    }
+                });
+            }
+        });
+
     }
 
 
