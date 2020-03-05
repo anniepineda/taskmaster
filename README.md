@@ -129,6 +129,22 @@ These tasks must be clickable. When clicked on, trigger a Toast that displays de
 
 
 
+## Feature Task (lab36)
+Feature Tasks
+User Login
+Added Cognito to Amplify setup. Added in user login and sign up flows to your application, using
+Cognito’s pre-built UI as appropriate. Displayed the logged in user’s username somewhere relevant in
+your app.
+
+User Logout
+
+Allow users to log out of application.
+![all tasks](./assets/sign-in.png)
+![all tasks](./assets/logout.png)
+
+
+
+
 
 
 ## Feature Task (lab 37)
