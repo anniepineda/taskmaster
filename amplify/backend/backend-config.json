@@ -1,6 +1,6 @@
 {
 	"api": {
-		"amplifyDatasource": {
+		"taskmaster": {
 			"service": "AppSync",
 			"providerPlugin": "awscloudformation",
 			"output": {
@@ -10,7 +10,7 @@
 						"authenticationType": "API_KEY",
 						"apiKeyConfig": {
 							"description": "",
-							"apiKeyExpirationDays": 7
+							"apiKeyExpirationDays": "365"
 						}
 					}
 				}
@@ -18,7 +18,7 @@
 		}
 	},
 	"auth": {
-		"taskmasterf19210aa": {
+		"taskmaster92699e7e": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": [],

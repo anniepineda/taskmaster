@@ -9,13 +9,11 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.anniepineda.taskmaster.models.Task;
-import com.anniepineda.taskmaster.models.TaskmasterDB;
 
 import java.util.List;
 
 public class AllTasks extends AppCompatActivity implements AllTaskRecyclerViewAdapter.OnTaskSelectedListener {
 
-    static TaskmasterDB database;
 
 //
 //    @Override
@@ -38,12 +36,7 @@ public class AllTasks extends AppCompatActivity implements AllTaskRecyclerViewAd
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_tasks);
-        database = Room.databaseBuilder(getApplicationContext(), TaskmasterDB.class,"tasks")
-                .allowMainThreadQueries().build();
-        List<Task> listOfTasks = database.taskDao().getAll();
-        RecyclerView rv = findViewById(R.id.allTaskRecyclerView);
-        rv.setLayoutManager(new LinearLayoutManager(this));
-        rv.setAdapter(new AllTaskRecyclerViewAdapter(listOfTasks, this));
+
     }
 
 

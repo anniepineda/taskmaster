@@ -58,6 +58,7 @@ public class AllTaskRecyclerViewAdapter extends RecyclerView.Adapter<AllTaskRecy
         holder.task = taskAtPosition;
         holder.taskTitle.setText(taskAtPosition.getTitle());
 
+
     }
 
     @Override

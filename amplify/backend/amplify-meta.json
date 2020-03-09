@@ -1,19 +1,19 @@
 {
 	"providers": {
 		"awscloudformation": {
-			"AuthRoleName": "amplify-taskmaster-taskmaster-110956-authRole",
-			"UnauthRoleArn": "arn:aws:iam::488071762028:role/amplify-taskmaster-taskmaster-110956-unauthRole",
-			"AuthRoleArn": "arn:aws:iam::488071762028:role/amplify-taskmaster-taskmaster-110956-authRole",
+			"AuthRoleName": "amplify-taskmaster-annie-215639-authRole",
+			"UnauthRoleArn": "arn:aws:iam::488071762028:role/amplify-taskmaster-annie-215639-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::488071762028:role/amplify-taskmaster-annie-215639-authRole",
 			"Region": "us-west-2",
-			"DeploymentBucketName": "amplify-taskmaster-taskmaster-110956-deployment",
-			"UnauthRoleName": "amplify-taskmaster-taskmaster-110956-unauthRole",
-			"StackName": "amplify-taskmaster-taskmaster-110956",
-			"StackId": "arn:aws:cloudformation:us-west-2:488071762028:stack/amplify-taskmaster-taskmaster-110956/bfa847d0-5994-11ea-a087-06d729e6f318",
-			"AmplifyAppId": "dlt9t5mf68kgo"
+			"DeploymentBucketName": "amplify-taskmaster-annie-215639-deployment",
+			"UnauthRoleName": "amplify-taskmaster-annie-215639-unauthRole",
+			"StackName": "amplify-taskmaster-annie-215639",
+			"StackId": "arn:aws:cloudformation:us-west-2:488071762028:stack/amplify-taskmaster-annie-215639/5d8cf510-61c2-11ea-8869-06e5c7bcc998",
+			"AmplifyAppId": "d1ex6ico0hsfyu"
 		}
 	},
 	"api": {
-		"amplifyDatasource": {
+		"taskmaster": {
 			"service": "AppSync",
 			"providerPlugin": "awscloudformation",
 			"output": {
@@ -23,43 +23,43 @@
 						"authenticationType": "API_KEY",
 						"apiKeyConfig": {
 							"description": "",
-							"apiKeyExpirationDays": 7
+							"apiKeyExpirationDays": "365"
 						}
 					}
 				},
-				"GraphQLAPIIdOutput": "pgupzpnhurc5lbsnhwye2g7qlq",
-				"GraphQLAPIEndpointOutput": "https://6zsxs47gnre6pi6gvek2h2jsvu.appsync-api.us-west-2.amazonaws.com/graphql",
-				"GraphQLAPIKeyOutput": "da2-kkdh3kgb2jf35bxtfift2ypm24"
+				"GraphQLAPIIdOutput": "oqlfzueiuzd43lojqdt4yuptmi",
+				"GraphQLAPIEndpointOutput": "https://xcml44liffeuzpmtpi45tj3wq4.appsync-api.us-west-2.amazonaws.com/graphql",
+				"GraphQLAPIKeyOutput": "da2-jnuxprrdmzacpf5bocjpzbmfem"
 			},
 			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplify-taskmaster-taskmaster-110956-deployment/amplify-cfn-templates/api/cloudformation-template.json",
-				"logicalId": "apiamplifyDatasource"
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-taskmaster-annie-215639-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"logicalId": "apitaskmaster"
 			},
-			"lastPushTimeStamp": "2020-03-05T11:24:32.869Z",
-			"lastPushDirHash": "Q0v+WKE4sbSIBy1kOhpFEsuZwn8="
+			"lastPushTimeStamp": "2020-03-09T06:03:15.219Z",
+			"lastPushDirHash": "fOazoDrYNDVJmpmTra8BJNc9His="
 		}
 	},
 	"auth": {
-		"taskmasterf19210aa": {
+		"taskmaster92699e7e": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": [],
 			"customAuth": false,
 			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplify-taskmaster-taskmaster-110956-deployment/amplify-cfn-templates/auth/taskmasterf19210aa-cloudformation-template.yml",
-				"logicalId": "authtaskmasterf19210aa"
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-taskmaster-annie-215639-deployment/amplify-cfn-templates/auth/taskmaster92699e7e-cloudformation-template.yml",
+				"logicalId": "authtaskmaster92699e7e"
 			},
-			"lastPushTimeStamp": "2020-03-05T11:24:32.875Z",
+			"lastPushTimeStamp": "2020-03-09T06:03:14.108Z",
 			"output": {
-				"AppClientSecret": "it8j65nkct60nh460ja74257o0nks11bado0eq1mej32e7agvcv",
-				"UserPoolId": "us-west-2_zS4IGdArC",
-				"AppClientIDWeb": "2fpmt8gaed0asgutkcat5s53hj",
-				"AppClientID": "265m5v2j2u27773bt8dup86rr4",
-				"IdentityPoolId": "us-west-2:8a60c2d1-517b-4b91-bda6-249378b3d365",
-				"IdentityPoolName": "taskmasterf19210aa_identitypool_f19210aa__taskmaster",
-				"UserPoolName": "taskmasterf19210aa_userpool_f19210aa"
+				"AppClientSecret": "1m0ghl3cfeuvdvtr2nvkcfaqa342jsfmdneca3mcg2pj6q431qt5",
+				"UserPoolId": "us-west-2_xJFxIEYTr",
+				"AppClientIDWeb": "2khrgtu9jqbogepjprhffm8kit",
+				"AppClientID": "2rk9326uu30c7bfkcuud6c4rea",
+				"IdentityPoolId": "us-west-2:b6cdfd2c-4dbd-47d5-b9fc-091384727fb8",
+				"IdentityPoolName": "taskmaster92699e7e_identitypool_92699e7e__annie",
+				"UserPoolName": "taskmaster92699e7e_userpool_92699e7e"
 			},
-			"lastPushDirHash": "pJf7FdBJ2n/+bpLx6OmQkZYXKRY="
+			"lastPushDirHash": "TDsjrMKOurhkLA0TIV4AvyQDbq0="
 		}
 	}
 }
