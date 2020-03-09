@@ -34,9 +34,6 @@ The all tasks page should just be an image with a back button; it needs no funct
 
 
 
-
-
-
 ## Adding Data to TaskMaster
 
 
@@ -55,13 +52,8 @@ top of the page should match the task title that was tapped on the previous page
 The homepage should also contain a button to visit the Settings page, and once the user has entered
 their username, it should display “{username}’s tasks” above the three task buttons.
 
-![all tasks](./assets/homescreen.png)
+![all tasks](./assets/homescreen2.png)
 ![all tasks](./assets/task-detail.png)
-
-
-
-
-
 
 
 
@@ -116,8 +108,6 @@ or by passing along only its ID in the intent.)
 
 
 
-
-
 ## Feature Task (lab 33)
 
 ### Task Model
@@ -137,8 +127,9 @@ Cognito’s pre-built UI as appropriate. Displayed the logged in user’s userna
 your app.
 
 User Logout
-
 Allow users to log out of application.
+
+
 ![all tasks](./assets/sign-in.png)
 ![all tasks](./assets/logout.png)
 
@@ -181,14 +172,14 @@ Use SNS to send a notification as part of that Lambda
 ## Feature Task (lab 41)
 
 ### Overview
-    Today, your app will allow users to “share” a photo from another app and open TaskMaster,
-    ready to upload that image as part of a new task.
+Today, your app will allow users to “share” a photo from another app and open TaskMaster,
+ready to upload that image as part of a new task.
 
-    Setup
-    Continue working in your taskmaster repository.
+Setup
+Continue working in your taskmaster repository.
 
-    Feature Tasks
-    Adding a Task from Another Application
-    Add an intent filter to your application such that a user can hit the “share” button on an
-    image in another application, choose TaskMaster as the app to share that image with, and be
-    taken directly to the Add a Task activity with that image pre-selected.
+Feature Tasks
+Adding a Task from Another Application
+Add an intent filter to your application such that a user can hit the “share” button on an
+image in another application, choose TaskMaster as the app to share that image with, and be
+taken directly to the Add a Task activity with that image pre-selected.

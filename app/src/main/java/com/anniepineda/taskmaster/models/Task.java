@@ -14,6 +14,7 @@ public class Task {
     private String title;
     private String description;
     private String state;
+    private String location;
 
 
     @Ignore
@@ -69,6 +70,8 @@ public class Task {
                 '}';
     }
 
-
+    public String getLocation() {
+        return location;
+    }
 }
 

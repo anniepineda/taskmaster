@@ -7,7 +7,8 @@ mutation CreateTask(
     id
     title
     description
-    status
+    state
+    location
     _version
     _deleted
     _lastChangedAt
@@ -21,7 +22,8 @@ mutation UpdateTask(
     id
     title
     description
-    status
+    state
+    location
     _version
     _deleted
     _lastChangedAt
@@ -35,43 +37,8 @@ mutation DeleteTask(
     id
     title
     description
-    status
-    _version
-    _deleted
-    _lastChangedAt
-  }
-}
-mutation CreateNote(
-  $input: CreateNoteInput!
-  $condition: ModelNoteConditionInput
-) {
-  createNote(input: $input, condition: $condition) {
-    id
-    content
-    _version
-    _deleted
-    _lastChangedAt
-  }
-}
-mutation UpdateNote(
-  $input: UpdateNoteInput!
-  $condition: ModelNoteConditionInput
-) {
-  updateNote(input: $input, condition: $condition) {
-    id
-    content
-    _version
-    _deleted
-    _lastChangedAt
-  }
-}
-mutation DeleteNote(
-  $input: DeleteNoteInput!
-  $condition: ModelNoteConditionInput
-) {
-  deleteNote(input: $input, condition: $condition) {
-    id
-    content
+    state
+    location
     _version
     _deleted
     _lastChangedAt

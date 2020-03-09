@@ -27,7 +27,6 @@ import com.amazonaws.mobile.config.AWSConfiguration;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
 import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
 import com.anniepineda.taskmaster.models.Task;
-import com.anniepineda.taskmaster.models.TaskmasterDB;
 import com.apollographql.apollo.GraphQLCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
@@ -45,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements AllTaskRecyclerVi
     private AllTaskRecyclerViewAdapter taskAdapter;
     //holds everything for recycler view
     private List<Task> tasks;
-    private TaskmasterDB database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -244,6 +242,7 @@ public class MainActivity extends AppCompatActivity implements AllTaskRecyclerVi
         goToDetail.putExtra("taskTitle",task.getTitle());
         goToDetail.putExtra("taskDescription",task.getDescription());
         goToDetail.putExtra("taskState", task.getState());
+        goToDetail.putExtra("address", task.getLocation());
         startActivity(goToDetail);
 
     }

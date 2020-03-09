@@ -68,30 +68,30 @@
 				}
 			}
 		},
-		"apiamplifyDatasource": {
+		"apitaskmaster": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/amplify-taskmaster-taskmaster-110956-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"TemplateURL": "https://s3.amazonaws.com/amplify-taskmaster-annie-215639-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"Parameters": {
 					"CreateAPIKey": 1,
-					"AppSyncApiName": "amplifyDatasource",
+					"AppSyncApiName": "taskmaster",
 					"DynamoDBBillingMode": "PAY_PER_REQUEST",
 					"DynamoDBEnableServerSideEncryption": "false",
-					"S3DeploymentBucket": "amplify-taskmaster-taskmaster-110956-deployment",
-					"S3DeploymentRootKey": "amplify-appsync-files/73bcd47f7ba224cc595014830724183f428072bd",
-					"env": "taskmaster"
+					"S3DeploymentBucket": "amplify-taskmaster-annie-215639-deployment",
+					"S3DeploymentRootKey": "amplify-appsync-files/35ae0f3b81da6918ac22bcd599e6c57243f12966",
+					"env": "annie"
 				}
 			}
 		},
-		"authtaskmasterf19210aa": {
+		"authtaskmaster92699e7e": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/amplify-taskmaster-taskmaster-110956-deployment/amplify-cfn-templates/auth/taskmasterf19210aa-cloudformation-template.yml",
+				"TemplateURL": "https://s3.amazonaws.com/amplify-taskmaster-annie-215639-deployment/amplify-cfn-templates/auth/taskmaster92699e7e-cloudformation-template.yml",
 				"Parameters": {
-					"identityPoolName": "taskmasterf19210aa_identitypool_f19210aa",
+					"identityPoolName": "taskmaster92699e7e_identitypool_92699e7e",
 					"allowUnauthenticatedIdentities": false,
-					"resourceNameTruncated": "taskmaf19210aa",
-					"userPoolName": "taskmasterf19210aa_userpool_f19210aa",
+					"resourceNameTruncated": "taskma92699e7e",
+					"userPoolName": "taskmaster92699e7e_userpool_92699e7e",
 					"autoVerifiedAttributes": "email",
 					"mfaConfiguration": "OFF",
 					"mfaTypes": "SMS Text Message",
@@ -107,9 +107,9 @@
 					"userpoolClientRefreshTokenValidity": 30,
 					"userpoolClientWriteAttributes": "email",
 					"userpoolClientReadAttributes": "email",
-					"userpoolClientLambdaRole": "taskmaf19210aa_userpoolclient_lambda_role",
+					"userpoolClientLambdaRole": "taskma92699e7e_userpoolclient_lambda_role",
 					"userpoolClientSetAttributes": false,
-					"resourceName": "taskmasterf19210aa",
+					"resourceName": "taskmaster92699e7e",
 					"authSelections": "identityPoolAndUserPool",
 					"authRoleArn": {
 						"Fn::GetAtt": [
@@ -126,7 +126,7 @@
 					"useDefault": "default",
 					"userPoolGroupList": "",
 					"dependsOn": "",
-					"env": "taskmaster"
+					"env": "annie"
 				}
 			}
 		},
@@ -134,7 +134,7 @@
 			"DependsOn": [
 				"AuthRole",
 				"UnauthRole",
-				"authtaskmasterf19210aa"
+				"authtaskmaster92699e7e"
 			],
 			"Type": "AWS::Lambda::Function",
 			"Properties": {
@@ -217,7 +217,7 @@
 				},
 				"idpId": {
 					"Fn::GetAtt": [
-						"authtaskmasterf19210aa",
+						"authtaskmaster92699e7e",
 						"Outputs.IdentityPoolId"
 					]
 				},

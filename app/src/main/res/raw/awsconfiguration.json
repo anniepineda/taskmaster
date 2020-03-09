@@ -6,26 +6,26 @@
     },
     "AppSync": {
         "Default": {
-            "ApiUrl": "https://6zsxs47gnre6pi6gvek2h2jsvu.appsync-api.us-west-2.amazonaws.com/graphql",
+            "ApiUrl": "https://xcml44liffeuzpmtpi45tj3wq4.appsync-api.us-west-2.amazonaws.com/graphql",
             "Region": "us-west-2",
             "AuthMode": "API_KEY",
-            "ApiKey": "da2-kkdh3kgb2jf35bxtfift2ypm24",
-            "ClientDatabasePrefix": "amplifyDatasource_API_KEY"
+            "ApiKey": "da2-jnuxprrdmzacpf5bocjpzbmfem",
+            "ClientDatabasePrefix": "taskmaster_API_KEY"
         }
     },
     "CredentialsProvider": {
         "CognitoIdentity": {
             "Default": {
-                "PoolId": "us-west-2:8a60c2d1-517b-4b91-bda6-249378b3d365",
+                "PoolId": "us-west-2:b6cdfd2c-4dbd-47d5-b9fc-091384727fb8",
                 "Region": "us-west-2"
             }
         }
     },
     "CognitoUserPool": {
         "Default": {
-            "PoolId": "us-west-2_zS4IGdArC",
-            "AppClientId": "265m5v2j2u27773bt8dup86rr4",
-            "AppClientSecret": "it8j65nkct60nh460ja74257o0nks11bado0eq1mej32e7agvcv",
+            "PoolId": "us-west-2_xJFxIEYTr",
+            "AppClientId": "2rk9326uu30c7bfkcuud6c4rea",
+            "AppClientSecret": "1m0ghl3cfeuvdvtr2nvkcfaqa342jsfmdneca3mcg2pj6q431qt5",
             "Region": "us-west-2"
         }
     },
